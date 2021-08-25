@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Base page
+{% endblock %}
+
+{% block content %}
+    {% include 'navbar.html' %}
+    {% if not note_list %}
+        <div class="text-center">
+            <br>
+            <h1 class="text-center">
+                Your notebook is empty
+            </h1>
+            <br>
+            <p class="text-center">
+                Click <a href="{% url 'new_note' %}">here</a> to go create note
+            </p>
+        </div>
+    {% else %}
+        <div class="container">
+        <div class="row ">
+            {% for notes in note_list %}
+            <div class="card border-dark mx-auto my-3 text-center" style="border-radius: 0; height: 30%; width: 30%">
+                <div class="card-header" style="border-radius: 0; background-color: #82a9ff">{{ notes.title }}</div>
+                <div class="card-body text-dark">
+                    <p class="card-text">{{ notes.text }}</p>
+                </div>
+                <div class="card-footer bg-transparent border-dark">{{ notes.created }}
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <a href="{% url "note_update" notes.pk %}"><span class="material-icons" style="color: #82a9ff">update</span></a>
+                        </div>
+                        <div>
+                            <form method="post" action="{% url 'note_delete' notes.pk %}">
+                                {% csrf_token %}
+                                <button style="border-style:none; background: #ffff"><span class="material-icons" style="color: #ff3d58">delete</span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div style="position: relative">
+            <div class="pagination" style="justify-content: center;">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+            </span>
+        </div>
+        </div>
+    </div>
+    {% endif %}
+
+{% endblock %}

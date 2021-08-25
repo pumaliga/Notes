@@ -1,0 +1,43 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <title>About</title>
+</head>
+<body style="background-image: url('https://cdn.pixabay.com/photo/2016/11/29/01/54/wood-1866667_960_720.jpg');
+    background-size: 100%">
+    <header>
+        <div class="container">
+            <a href="{% url 'base' %}"><i class="material-icons cart-icon" style="color: black; font-size: 32px;">arrow_back</i></a>
+            <nav>
+                <ul>
+                    <li><a href="https://github.com/pumaliga"><img src="{% static 'icons/git.png' %}" alt="git"></a></li>
+                    <li><a href="mailto:a.kolesnikov040498@gmail.com"><img src="{% static 'icons/mail.png' %}" alt="mail"></a></li>
+                    <li><a href="https://www.linkedin.com/in/kolesnikovaa/"><img src="{% static 'icons/link.png' %}" alt="link"></a></li>
+                </ul>
+            </nav>
+  </div>
+    </header>
+    <div class="main">
+        <div class="container">
+               <div style="text-align: center">
+                   <h1>Welcome!</h1>
+                   <h3>This is a site that can be used in place of a paper notebook or text file. You can just open it up and write something down.</h3>
+               </div>
+        </div>
+    </div>
+    <footer></footer>
+
+{#    <div id="header">head</div>#}
+{#    <div id="main">main</div>#}
+{#    <div id="aside">aside</div>#}
+{#    <div id="footer">footer</div>#}
+</body>
+</html>
