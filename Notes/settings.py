@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'app',
     'crispy_forms',
     'rest_framework',
+    'rest_framework.authtoken',
 
 ]
 
@@ -140,3 +141,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
