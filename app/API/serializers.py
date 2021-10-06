@@ -17,7 +17,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
-        fields = ['title', 'text']
+        fields = ['title', 'text', 'created']
 
 
 

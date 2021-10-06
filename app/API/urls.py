@@ -7,7 +7,6 @@ from app.API.resources import NoteList
 router = routers.SimpleRouter()
 router.register(r'notes', NoteList)
 
-
 urlpatterns = [
     path('api-token-auth/', views.obtain_auth_token)
 ]
